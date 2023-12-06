@@ -1001,13 +1001,13 @@ tfn5kx6twojmzgbdznc2
 5bszzkpcdxqkvkf7tgcone2
 `;
 
+// Turn lines of text data into an array of strings
 const arrayOfStarCodes = starChartCodes.split('\n');
-
-
 console.log(arrayOfStarCodes);
 
 let totalCalibrationValues = 0;
 
+// Iterate through each lien and detrmine the first ocurring digit from start and end
 arrayOfStarCodes.forEach((element) => {
   let firstNumber = '';
   let secondNumber = '';
@@ -1032,19 +1032,18 @@ arrayOfStarCodes.forEach((element) => {
     }
   };
   
+  // Call functions and create the 2-digit number
   findFirstNumber();
   findSecondNumber();
+  const fixedStarCode = firstNumber * 10 + secondNumber;
 
   console.log("Element:", element.trim())
   console.log("First digit:", firstNumber)
   console.log("Second digit:", secondNumber)
-
-  const fixedStarCode = firstNumber * 10 + secondNumber;
-
   console.log("Two-digit number:", fixedStarCode)
 
-  totalCalibrationValues += fixedStarCode;
-  // totalCalibrationValues += fixedStarCode.reduce((acc, val) => acc + val, 0);
+  // Turn all starcodes into numbers from strings and add together
+  totalCalibrationValues += parseInt(fixedStarCode);
 });
 
 console.log("TOTAL:", totalCalibrationValues);
